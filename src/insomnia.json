@@ -1,0 +1,166 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "",
+  "__export_source": "heroku-redis-api.app.v1",
+  "resources": [
+    {
+      "_id": "__FLD_1__",
+      "parentId": "__WORKSPACE_ID__",
+      "name": "Nodejs REST API",
+      "description": "",
+      "environment": {
+        "api_root": ""
+      },
+      "environmentPropertyOrder": null,
+      "_type": "request_group"
+    },
+    {
+      "_id": "__REQ_1__",
+      "parentId": "__FLD_1__",
+      "url": "{{ api_root }}/help",
+      "name": "help",
+      "description": "Displays all available endpoints",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "isPrivate": false,
+      "settingStoreCookies": false,
+      "settingSendCookies": false,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "__REQ_2__",
+      "parentId": "__FLD_1__",
+      "url": "{{ api_root }}/info",
+      "name": "info",
+      "description": "The INFO command returns information and statistics about the server in a format that is simple to parse by computers and easy to read by humans.\n\nThe optional parameter can be used to select a specific section of information:\n\nhttps://redis.io/commands/info",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "isPrivate": false,
+      "settingStoreCookies": false,
+      "settingSendCookies": false,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "__REQ_3__",
+      "parentId": "__FLD_1__",
+      "url": "{{ api_root }}/keys",
+      "name": "keys",
+      "description": "Returns all keys matching pattern.\n\n```sh\ncurl --request GET --url '{{ api_root }}/keys?pattern=*'\n```\n\nhttps://redis.io/commands/keys",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "pattern",
+          "value": "*",
+          "disbled": false
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "isPrivate": false,
+      "settingStoreCookies": false,
+      "settingSendCookies": false,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "__REQ_4__",
+      "parentId": "__FLD_1__",
+      "url": "{{ api_root }}/get",
+      "name":"get",
+      "description": "Get the value of key. If the key does not exist the special value nil is returned. An error is returned if the value stored at key is not a string, because GET only handles string values.\n\n```sh\ncurl --request GET --url '{{ api_root }}/get?key=foo'\n```\n\nhttps://redis.io/commands/get",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "key",
+          "value": "foo",
+          "disbled": true
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "isPrivate": false,
+      "settingStoreCookies": false,
+      "settingSendCookies": false,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "__REQ_5__",
+      "parentId": "__FLD_1__",
+      "url": "{{ api_root }}/type",
+      "name": "type",
+      "description": "Returns the string representation of the type of the value stored at key. The different types that can be returned are: *string*, *list*, *set*, *zset*, *hash* and *stream*.\n\nhttps://redis.io/commands/type",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "key",
+          "value": "foo",
+          "disbled": true
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "isPrivate": false,
+      "settingStoreCookies": false,
+      "settingSendCookies": false,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "__REQ_6__",
+      "parentId": "__FLD_1__",
+      "url": "{{ api_root }}/del",
+      "name": "del",
+      "description": "Removes the specified keys. A key is ignored if it does not exist.\n\n```sh\ncurl --request POST \\\n  --url {{ api_root }}/del \\\n  --header 'Content-Type: application/x-www-form-urlencoded' \\\n  --data 'keys=foo1,foo2'\n```\n\nhttps://redis.io/commands/del",
+      "method": "POST",
+      "body": {
+        "mimeType":"application/x-www-form-urlencoded",
+        "params": [
+          {
+            "name": "keys",
+            "value": "foo1,foo2",
+            "disbled": true
+          }
+        ]
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/x-www-form-urlencoded",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "isPrivate": false,
+      "settingStoreCookies": false,
+      "settingSendCookies": false,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    }
+  ]
+}

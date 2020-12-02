@@ -1,0 +1,50 @@
+{
+  "name": "node-redis-api",
+  "repository": "https://github.com/velizarn/node-redis-api.git",
+  "logo": "https://raw.githubusercontent.com/velizarn/node-redis-api/master/img/redis.png",
+  "scripts": {},
+  "keywords": [
+    "expressjs",
+    "heroku",
+    "node",
+    "redis"
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free",
+      "command": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 src/start.js"
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    { "url": "heroku/nodejs" },
+    { "url": "https://github.com/velizarn/heroku-buildpack-apt" }
+  ],
+  "stack": "heroku-20",
+  "env": {
+    "LOG_LEVEL": {
+      "value": "info",
+      "required": false
+    },
+    "REDIS_URL": {
+      "description": "The URL of the Redis server",
+      "value": "",
+      "required": true
+    },
+    "TZ": {
+      "description": "Set time zone for your application",
+      "value": "Europe/Sofia",
+      "required": false
+    },
+    "WEB_CONCURRENCY": {
+      "value": "2",
+      "required": false
+    },
+    "WHITELIST_IP": {
+      "description": "Allowed IP address, optional",
+      "value": "",
+      "required": false
+    }
+  }
+}
