@@ -1,6 +1,6 @@
 {
   "name": "node-redis-api",
-  "repository": "https://github.com/velizarn/node-redis-api.git",
+  "repository": "https://github.com/velizarn/heroku-redis-api.git",
   "logo": "https://raw.githubusercontent.com/velizarn/node-redis-api/master/img/redis.png",
   "scripts": {},
   "keywords": [
