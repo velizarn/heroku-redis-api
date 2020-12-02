@@ -10,7 +10,7 @@ A Redis REST API with NodeJS using Expressjs and Redis, Inspired by [lucianostra
 
 ### Heroku
 
-You can deploy your own copy of the app using the web-based flow:
+You can deploy your own copy of the app using the web-based flow:<br />
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 Click on "*Deploy to Heroku*" button above and follow the instructions:
