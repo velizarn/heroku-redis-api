@@ -3,8 +3,8 @@
 ![Redis + Node.js](img/redis-node.png)<br />
 A Redis REST API with NodeJS using Expressjs and Redis, Inspired by [lucianostraga/heroku-redis-node-rest-api](https://github.com/lucianostraga/heroku-redis-node-rest-api).
 
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/velizarn/node-redis-api)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/velizarn/node-redis-api/blob/master/LICENSE)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/velizarn/heroku-redis-api)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/velizarn/heroku-redis-api/blob/main/LICENSE)
 
 ## Setup
 
