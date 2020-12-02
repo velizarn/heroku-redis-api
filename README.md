@@ -11,7 +11,7 @@ A Redis REST API with NodeJS using Expressjs and Redis, Inspired by [lucianostra
 ### Heroku
 
 You can deploy your own copy of the app using the web-based flow:<br />
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/velizarn/heroku-redis-api/tree/main)
 
 Click on "*Deploy to Heroku*" button above and follow the instructions:
 * Enter an application name
@@ -20,7 +20,7 @@ Click on "*Deploy to Heroku*" button above and follow the instructions:
 
 You can customize the button, for example you might have the following button URL:
 ```html
-<a href="https://heroku.com/deploy?template=https://github.com/velizarn/node-redis-api/tree/master&
+<a href="https://heroku.com/deploy?template=https://github.com/velizarn/heroku-redis-api/tree/main&
 env[WHITELIST_IP]=11.11.11.11">Deploy to Heroku</a>
 ```
 This will cause the Heroku app-set interface to prefill IP address for the WHITELIST_IP environment variable and to use specific branch from your repo.
