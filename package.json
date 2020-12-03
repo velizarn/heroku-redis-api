@@ -16,7 +16,7 @@
     "postinstall": "npm dedupe",
     "start": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 src/start.js",
     "start:local": "nf start",
-    "stop:all": "taskkill /f /im node.exe",
+    "stop:all:win": "taskkill /f /im node.exe",
     "stop:all:linux": "killall -g node",
     "update:dev": "rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force && npm install --ignore-scripts && npm dedupe && npm audit fix",
     "watch": "nodemon --optimize_for_size --max_old_space_size=920 --gc_interval=100 src/start.js"
@@ -27,6 +27,7 @@
     "dotenv": "8.2.0",
     "express": "4.17.1",
     "heroku-logger": "0.3.3",
+    "nocache": "2.1.0",
     "redis": "3.0.2"
   },
   "devDependencies": {

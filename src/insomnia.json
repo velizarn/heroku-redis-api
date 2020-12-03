@@ -65,7 +65,7 @@
         {
           "name": "pattern",
           "value": "*",
-          "disbled": false
+          "disabled": false
         }
       ],
       "headers": [],
@@ -90,7 +90,7 @@
         {
           "name": "key",
           "value": "foo",
-          "disbled": true
+          "disabled": true
         }
       ],
       "headers": [],
@@ -115,7 +115,7 @@
         {
           "name": "key",
           "value": "foo",
-          "disbled": true
+          "disabled": true
         }
       ],
       "headers": [],
@@ -131,6 +131,31 @@
     {
       "_id": "__REQ_6__",
       "parentId": "__FLD_1__",
+      "url": "{{ api_root }}/ttl",
+      "name": "ttl",
+      "description": "Returns the remaining time to live of a key that has a timeout. This introspection capability allows a Redis client to check how many seconds a given key will continue to be part of the dataset.\n\nThe command returns *-2* if the key does not exist.\nThe command returns *-1* if the key exists but has no associated expire.\n\nhttps://redis.io/commands/ttl",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "key",
+          "value": "foo",
+          "disabled": true
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "isPrivate": false,
+      "settingStoreCookies": false,
+      "settingSendCookies": false,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "__REQ_7__",
+      "parentId": "__FLD_1__",
       "url": "{{ api_root }}/del",
       "name": "del",
       "description": "Removes the specified keys. A key is ignored if it does not exist.\n\n```sh\ncurl --request POST \\\n  --url {{ api_root }}/del \\\n  --header 'Content-Type: application/x-www-form-urlencoded' \\\n  --data 'keys=foo1,foo2'\n```\n\nhttps://redis.io/commands/del",
@@ -141,7 +166,7 @@
           {
             "name": "keys",
             "value": "foo1,foo2",
-            "disbled": true
+            "disabled": true
           }
         ]
       },

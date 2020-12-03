@@ -1,7 +1,7 @@
 {
   "name": "node-redis-api",
   "repository": "https://github.com/velizarn/heroku-redis-api.git",
-  "logo": "https://raw.githubusercontent.com/velizarn/heroku-redis-api/main/img/redis.png",
+  "logo": "https://raw.githubusercontent.com/velizarn/heroku-redis-api/main/public/redis.png",
   "scripts": {},
   "keywords": [
     "expressjs",

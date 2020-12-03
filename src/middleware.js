@@ -54,7 +54,7 @@ const forceDomainSSL = (req, res, next) => {
       res.redirect(302, `https://${req.headers.host}${req.originalUrl}`);
     }
     else {
-      next();
+      return next();
     }
     break;
   case 'production':
@@ -65,10 +65,10 @@ const forceDomainSSL = (req, res, next) => {
       logger.info(`Insecure request to ${PUBLIC_DOMAIN}`);
       res.redirect(302, `https://${req.headers.host}${req.originalUrl}`);
     }
-    else next();
+    else return next();
     break;
   default:
-    next();
+    return next();
   }
 };
 
@@ -89,7 +89,7 @@ const unless = (middleware, ...paths) => (req, res, next) => {
 
 const middlewareSecurity = (req, res, next) => {
   res.set('X-XSS-Protection', '1; mode=block');
-  next();
+  return next();
 };
 
 /**
@@ -104,7 +104,7 @@ const skipMap = (req, res, next) => {
   if (req.path.match(/\.map$/i)) {
     res.send('');
   } else {
-    next();
+    return next();
   }
 };
 
@@ -118,7 +118,7 @@ const skipMap = (req, res, next) => {
  */
 const whitelistIp = (req, res, next) => {
   if (WHITELIST_IP === '') {
-    next();
+    return next();
   }
   const request_ip = req.get(FORWARDED_IP_HEADER) || req.ip;
   /* @TODO
@@ -127,7 +127,7 @@ const whitelistIp = (req, res, next) => {
     || req.connection.socket.remoteAddress;
   */
   if (WHITELIST_IP.split(',').includes(request_ip)) {
-    next();
+    return next();
   } else {
     res.status(403).send('Forbidden: Access is denied.');
   }
