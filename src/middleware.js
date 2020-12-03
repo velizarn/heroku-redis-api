@@ -3,13 +3,13 @@
 require('dotenv').config();
 
 const {
-  APP_DOMAIN,
-  NODE_ENV,
-  PUBLIC_DOMAIN,
-  WHITELIST_IP = ''
-} = process.env;
-
-const logger = require('heroku-logger');
+    APP_DOMAIN,
+    NODE_ENV,
+    PUBLIC_DOMAIN,
+    WHITELIST_IP = ''
+  } = process.env,
+  logger = require('heroku-logger'),
+  FORWARDED_IP_HEADER = 'x-forwarded-for';
 
 /**
  * Determines if default Heroku app domain is invoked on Production
@@ -120,10 +120,12 @@ const whitelistIp = (req, res, next) => {
   if (WHITELIST_IP === '') {
     next();
   }
-  const request_ip = req.ip
+  const request_ip = req.get(FORWARDED_IP_HEADER) || req.ip;
+  /* @TODO
     || req.connection.remoteAddress
     || req.socket.remoteAddress
     || req.connection.socket.remoteAddress;
+  */
   if (WHITELIST_IP.split(',').includes(request_ip)) {
     next();
   } else {
