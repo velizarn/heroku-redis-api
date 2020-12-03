@@ -1,5 +1,4 @@
 /* eslint no-unused-vars: 0 */
-/* eslint security/detect-non-literal-fs-filename: 0 */
 'use strict';
 
 require('dotenv').config();
