@@ -35,7 +35,7 @@ const redisOptions = () => {
   if (REDIS_PASSWORD !== '') {
     options.password = REDIS_PASSWORD;
   }
-  
+
   if (REDIS_CA !== '') {
     options.tls = {
       cert: REDIS_CA,
