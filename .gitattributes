@@ -3,3 +3,7 @@
 
 # Require Unix line endings
 * text eol=lf
+
+# Binary files.
+*.ico binary
+*.png binary
