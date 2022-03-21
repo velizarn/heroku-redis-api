@@ -10,12 +10,13 @@
     "prettier",
     "plugin:security/recommended"
   ],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": false
     },
     "ecmaVersion": 2018,
+    "requireConfigFile": false,
     "sourceType": "module"
   },
   "plugins": [

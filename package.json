@@ -6,7 +6,7 @@
     "url": "https://velizarn.github.io/"
   },
   "engines": {
-    "node": "10.20.0"
+    "node": "14.18.1"
   },
   "main": "src/start.js",
   "scripts": {
@@ -23,23 +23,24 @@
   },
   "dependencies": {
     "bluebird": "3.7.2",
-    "body-parser": "1.19.0",
-    "dotenv": "8.2.0",
-    "express": "4.17.1",
+    "body-parser": "1.19.2",
+    "dotenv": "16.0.0",
+    "express": "4.17.3",
     "heroku-logger": "0.3.3",
-    "nocache": "2.1.0",
+    "nocache": "3.0.1",
     "redis": "3.0.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.7.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-json": "^2.1.2",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-security": "^1.4.0",
-    "foreman": "^3.0.1",
-    "nodemon": "^2.0.6",
-    "prettier": "^2.0.5"
+    "@babel/core": "7.17.2",
+    "@babel/eslint-parser": "7.17.0",
+    "eslint": "8.11.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-json": "3.1.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-security": "1.4.0",
+    "foreman": "3.0.1",
+    "nodemon": "2.0.15",
+    "prettier": "2.2.1"
   },
   "nodemonConfig": {
     "ignore": [
