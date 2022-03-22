@@ -30,7 +30,7 @@
       "required": true
     },
     "WHITELIST_IP": {
-      "description": "Allowed IP address, optional",
+      "description": "Allowed IP address, optional (https://httpbin.org/ip)",
       "value": "",
       "required": false
     }
