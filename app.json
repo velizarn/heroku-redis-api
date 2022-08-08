@@ -22,7 +22,7 @@
     { "url": "heroku/nodejs" },
     { "url": "https://github.com/velizarn/heroku-buildpack-apt" }
   ],
-  "stack": "heroku-20",
+  "stack": "heroku-22",
   "env": {
     "REDIS_URL": {
       "description": "The URL of the Redis server",
