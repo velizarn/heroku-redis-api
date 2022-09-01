@@ -1,0 +1,14 @@
+/.github
+/.do
+/docs
+/test
+.gitkeep
+.env.sample
+.eslintignore
+.eslintrc.json
+.gitattributes
+.gitignore
+.prettierrc
+LICENSE
+README.md
+renovate.json
