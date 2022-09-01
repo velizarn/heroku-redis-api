@@ -54,7 +54,26 @@ You can deploy to Scalingo by clicking the button below:<br />
 
 ## How to use it
 
-@TODO
+### Available endpoints
+
+<dl>
+  <dt>GET /help</dt>
+    <dd>Displays all available endpoints</dd>
+  <dt>GET /info</dt>
+    <dd>Returns information and statistics about the server</dd>
+  <dt>GET /insomnia.json</dt>
+    <dd>Returns data to import a ready-to-use collection into Insomnia Core</dd>
+  <dt>GET /keys</dt>
+    <dd>Returns all keys, optionally you can set a pattern, e.g. /keys?pattern=name*</dd>
+  <dt>GET /get?key=</dt>
+    <dd>Get the value of key. If the key does not exist the special value nil is returned. An error is returned if the value stored at key is not a string, because GET only handles string values.</dd>
+  <dt>GET /type?key=</dt>
+    <dd>Returns the string representation of the type of the value stored at key.</dd>
+  <dt>GET /ttl?key=</dt>
+    <dd>Returns the remaining time to live of a key that has a timeout.</dd>
+  <dt>POST /del</dt>
+    <dd>Removes the specified key/s, e.g. keys=foo, keys=foo1,foo2,foo3, etc. A key is ignored if it does not exist.</dd>
+</dl>
 
 ## License
 
