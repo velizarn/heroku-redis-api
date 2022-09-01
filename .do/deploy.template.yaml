@@ -8,7 +8,7 @@ spec:
    envs:
    - key: REDIS_URL
      value:
-     type: SECRET
+     type: GENERAL
      scope: RUN_TIME
    - key: WHITELIST_IP
      value:
