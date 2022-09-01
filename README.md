@@ -42,7 +42,7 @@ You can deploy to DigitalOcean by clicking the button below:<br />
 ### Scalingo
 
 You can deploy to Scalingo by clicking the button below:<br />
-[![Deploy on Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/velizarn/heroku-redis-api/tree/main)
+[![Deploy on Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/velizarn/heroku-redis-api#main)
 
 ### Local environment
 
