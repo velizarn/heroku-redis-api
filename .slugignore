@@ -1,6 +1,5 @@
 /.github
 /.do
-/docs
 /test
 .gitkeep
 .env.sample
