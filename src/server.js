@@ -13,6 +13,7 @@ const {
 const
   bodyParser = require('body-parser'),
   express = require('express'),
+  path = require('path'),
   nocache = require('nocache'),
   logger = require('heroku-logger'),
   { forceDomainSSL, unless , middlewareSecurity, whitelistIp } = require('./middleware'),
@@ -25,6 +26,7 @@ app
   .use(middlewareSecurity)
   .use(whitelistIp)
   .use(express.static('public'))
+  .use('/docs', express.static(path.join(__dirname, '../docs')))
   .use(bodyParser.urlencoded({ extended: true }))
   .use(nocache())
   .use((req, res, next) => {
