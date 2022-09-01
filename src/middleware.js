@@ -8,8 +8,7 @@ const {
     PUBLIC_DOMAIN,
     WHITELIST_IP = ''
   } = process.env,
-  logger = require('heroku-logger'),
-  FORWARDED_IP_HEADER = 'x-forwarded-for';
+  logger = require('heroku-logger');
 
 /**
  * Determines if default Heroku app domain is invoked on Production
@@ -119,12 +118,16 @@ const whitelistIp = (req, res, next) => {
   if (WHITELIST_IP === '') {
     return next();
   }
-  const request_ip = req.get(FORWARDED_IP_HEADER) || req.ip;
-  /* @TODO
-    || req.connection.remoteAddress
-    || req.socket.remoteAddress
-    || req.connection.socket.remoteAddress;
-  */
+  const request_ip = (
+    req.headers['cf-connecting-ip'] ||
+    req.headers['fastly-client-ip'] ||
+    req.headers['fly-client-ip'] ||
+    req.headers['do-connecting-ip'] ||
+    req.headers['x-real-ip'] ||
+    req.headers['x-forwarded-for'].split(',')[0] ||
+    req.ip || ''
+  ).split(',')[0].trim();
+
   if (WHITELIST_IP.split(',').includes(request_ip)) {
     return next();
   } else {
@@ -141,3 +144,40 @@ module.exports = {
   skipMap,
   whitelistIp
 };
+
+/**
+ * How to get a User's IP Address in Express.js
+ *
+ * Cloudflare: https://developers.cloudflare.com/fundamentals/get-started/reference/http-request-headers/
+ *  True-Client-IP provides the original client IP address to the origin web server.
+ *  There is no difference between the True-Client-IP and CF-Connecting-IP headers =
+ *  besides the name of the header. Some Enterprise customers with legacy devices need True-Client-IP
+ *  to avoid updating firewalls or load-balancers to read a custom header name.
+ *
+ * Fastly: https://developer.fastly.com/reference/http/http-headers/Fastly-Client-IP/
+ *  When Fastly receives a request that does not include a Fastly-Client-IP header,
+ *  it will add one, set to the current value of client.ip.
+ *  This provides convenient access to the IP address that Fastly regards as the client making the request.
+ *
+ * Nginx and FastCGI: X-Real-IP
+ *
+ * Akamai: True-Client-Ip
+ *
+ * Fly.io: https://fly.io/docs/reference/runtime-environment/
+ *  Fly-Client-IP - The IP address Fly accepted a connection from.
+ *  This will be the client making the initial request and as such,
+ *  will also appear at the start of the X-Forwarded-For addresses.
+ *
+ * DigitalOcean: do-connecting-ip
+ *
+ * Express JS: http://expressjs.com/en/4x/api.html#req.ip
+ *  req.ip - Contains the remote IP address of the request.
+ *  When the trust proxy setting does not evaluate to false,
+ *  the value of this property is derived from the left-most entry in the X-Forwarded-For header.
+ *  This header can be set by the client or by the proxy.
+ *
+ * @TODO Render.com, Scalingo
+ *
+ * https://stackabuse.com/bytes/how-to-get-a-users-ip-address-in-express-js/
+ * https://stackoverflow.com/questions/72557636/difference-between-x-forwarded-for-and-x-real-ip-headers
+ */

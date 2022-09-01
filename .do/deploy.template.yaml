@@ -1,0 +1,18 @@
+spec:
+ name: redis-api
+ services:
+ - name: web
+   git:
+    branch: main
+    repo_clone_url: https://github.com/velizarn/heroku-redis-api.git
+   envs:
+   - key: REDIS_URL
+     value:
+     type: SECRET
+     scope: RUN_TIME
+   - key: WHITELIST_IP
+     value:
+     type: GENERAL
+     scope: RUN_TIME
+   run_command: node --optimize_for_size --max_old_space_size=460 --gc_interval=100 src/start.js
+   instance_size_slug: basic-xxs

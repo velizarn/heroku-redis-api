@@ -6,6 +6,10 @@ A Redis REST API with NodeJS using Expressjs and Redis, Inspired by [lucianostra
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/velizarn/heroku-redis-api)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/velizarn/heroku-redis-api/blob/main/LICENSE)
 
+![Node 16.17.0](https://img.shields.io/badge/node-16.17.0-blueviolet.svg)
+![Express 4.18.1](https://img.shields.io/badge/express-4.18.1-yellowgreen.svg)
+![Redis 3.1.2](https://img.shields.io/badge/redis-3.1.2-yellowgreen.svg)
+
 ## Setup
 
 ### Heroku
@@ -29,6 +33,11 @@ This will cause the Heroku app-set interface to prefill IP address for the WHITE
 
 *The app name argument is optional. If no app name is specified, a random name will be generated.
 Since Heroku app names are in a global namespace, you can expect that common names, like “blog” or “wiki”, will already be taken. It’s often easier to start with a default name and rename the app later.*
+
+### DigitalOcean
+
+You can deploy to DigitalOcean by clicking the button below:<br />
+[![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/velizarn/heroku-redis-api/tree/main)
 
 ### Local environment
 
