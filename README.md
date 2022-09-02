@@ -39,6 +39,10 @@ Since Heroku app names are in a global namespace, you can expect that common nam
 You can deploy to DigitalOcean by clicking the button below:<br />
 [![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/velizarn/heroku-redis-api/tree/main)
 
+### Render
+
+You can deploy to Render.com by clicking the button below:<br />
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 ### Scalingo
 
 You can deploy to Scalingo by clicking the button below:<br />

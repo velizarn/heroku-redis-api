@@ -1,0 +1,14 @@
+services:
+ - type: web
+   name: node-redis-api
+   env: node
+   repo: https://github.com/velizarn/heroku-redis-api.git
+   region: frankfurt
+   plan: starter
+   branch: main
+   numInstances: 1
+   envVars:
+    - key: REDIS_URL
+      sync: false
+    - key: WHITELIST_IP
+      sync: false
