@@ -14,7 +14,7 @@
     "heroku-postbuild": "echo This runs afterwards.",
     "lint": "eslint --ext .js,.json,.jsx . --fix",
     "postinstall": "npm dedupe",
-    "start": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 ./src/start.js",
+    "start": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 src/start.js",
     "start:local": "nf start",
     "stop:all:win": "taskkill /f /im node.exe",
     "stop:all:linux": "killall -g node",
