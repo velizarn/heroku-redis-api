@@ -7,7 +7,8 @@ services:
    plan: starter
    branch: main
    numInstances: 1
-   startCommand: node --optimize_for_size --max_old_space_size=460 --gc_interval=100 ./src/start.js
+   buildCommand: npm install
+   startCommand: node --optimize_for_size --max_old_space_size=460 --gc_interval=100 src/start.js
    envVars:
     - key: REDIS_URL
       sync: false
