@@ -1,15 +1,14 @@
 'use strict';
 
-module.exports = (app, redisClient, logger) => {
+module.exports = (app, redisClient) => {
 
-  require('./homepage')(app, redisClient, logger);
+  require('./homepage')(app, redisClient);
   require('./help')(app);
   require('./insomnia')(app);
-  require('./info')(app, redisClient, logger);
-  require('./keys')(app, redisClient, logger);
-  require('./get')(app, redisClient, logger);
-  require('./type')(app, redisClient, logger);
-  require('./ttl')(app, redisClient, logger);
-  require('./del')(app, redisClient, logger);
-
+  require('./info')(app, redisClient);
+  require('./keys')(app, redisClient);
+  require('./get')(app, redisClient);
+  require('./type')(app, redisClient);
+  require('./ttl')(app, redisClient);
+  require('./del')(app, redisClient);
 };

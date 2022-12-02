@@ -1,16 +1,16 @@
 'use strict';
 
-module.exports = (app, redisClient, logger) => {
+module.exports = (app, redisClient) => {
 
-  app.post('/del', async (req, res) => {
+  app.post('/del', async (req, res, next) => {
     try {
       const
         keys = req.body.keys || '',
         keysArr = keys.split(','),
-        result = await redisClient.delAsync(...keysArr) || 0;
+        result = await redisClient.del(...keysArr) || 0;
       res.send({ result: (result > 0) });
     } catch (err) {
-      logger.error(err.stack);
+      next(err);
     }
   });
 };
