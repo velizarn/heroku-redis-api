@@ -1,13 +1,14 @@
 'use strict';
 
-module.exports = (app, redisClient, logger) => {
+module.exports = (app, redisClient) => {
 
   app.get('/type', async (req, res, next) => {
     try {
 
       const
         key = req.query.key || '', // @TODO :key([.-_:a-zA-Z0-9]+)
-        keyExists = await redisClient.existsAsync(key) || 0;
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
+        keyExists = await redisClient.exists(key) || 0;
 
       res.set('Content-Type', 'text/plain');
 
@@ -15,7 +16,7 @@ module.exports = (app, redisClient, logger) => {
 
         // https://redis.io/commands/type
         // The different types that can be returned are: string, list, set, zset, hash and stream.
-        const type = await redisClient.typeAsync(key);
+        const type = await redisClient.type(key);
 
         res.send(type);
       } else {
@@ -23,7 +24,7 @@ module.exports = (app, redisClient, logger) => {
       }
 
     } catch (err) {
-      logger.error(err.message);
+      next(err);
     }
   });
 };

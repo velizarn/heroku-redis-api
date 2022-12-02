@@ -5,7 +5,7 @@ const
   fs = require('fs'),
   util = require('util');
 
-module.exports = (app, redisClient, logger) => {
+module.exports = (app, redisClient) => {
 
   app.get('/', async (req, res, next) => {
     try {
@@ -26,7 +26,7 @@ module.exports = (app, redisClient, logger) => {
       res.set('Content-Type', 'text/html');
       res.send(html);
     } catch (err) {
-      logger.error(err.message);
+      next(err);
     }
   });
 };

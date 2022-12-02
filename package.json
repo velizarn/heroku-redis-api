@@ -1,12 +1,12 @@
 {
   "name": "node-redis-api",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": {
     "name": "Velizar Nenov",
     "url": "https://velizarn.github.io/"
   },
   "engines": {
-    "node": "16.17.0"
+    "node": "16.18.1"
   },
   "main": "src/start.js",
   "scripts": {
@@ -22,25 +22,24 @@
     "watch": "nodemon --optimize_for_size --max_old_space_size=920 --gc_interval=100 src/start.js"
   },
   "dependencies": {
-    "bluebird": "3.7.2",
-    "body-parser": "1.20.0",
-    "dotenv": "16.0.2",
-    "express": "4.18.1",
+    "body-parser": "1.20.1",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
     "heroku-logger": "0.3.3",
     "nocache": "3.0.4",
-    "redis": "3.1.2"
+    "redis": "4.3.0"
   },
   "devDependencies": {
-    "@babel/core": "7.18.13",
-    "@babel/eslint-parser": "7.18.9",
+    "@babel/core": "7.20.5",
+    "@babel/eslint-parser": "7.19.1",
     "eslint": "8.23.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-json": "3.1.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-security": "1.5.0",
     "foreman": "3.0.1",
-    "nodemon": "2.0.19",
-    "prettier": "2.7.1"
+    "nodemon": "2.0.20",
+    "prettier": "2.8.0"
   },
   "nodemonConfig": {
     "ignore": [

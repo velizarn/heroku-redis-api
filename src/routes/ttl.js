@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (app, redisClient, logger) => {
+module.exports = (app, redisClient) => {
 
   app.get('/ttl', async (req, res, next) => {
     try {
@@ -9,12 +9,12 @@ module.exports = (app, redisClient, logger) => {
 
       res.set('Content-Type', 'text/plain');
 
-      const ttl = await redisClient.ttlAsync(key);
+      const ttl = await redisClient.ttl(key);
 
       res.send(`${ttl}`);
 
     } catch (err) {
-      logger.error(err.message);
+      next(err);
     }
   });
 };

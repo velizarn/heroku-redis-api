@@ -4,32 +4,22 @@ require('dotenv').config();
 
 const {
   REDIS_PASSWORD = '',
-  REDIS_URL,
-  REDIS_CA = ''
+  REDIS_CA = '',
+  REDIS_URL
 } = process.env;
 
 const
-  bluebird = require('bluebird'),
-  redis = require('redis');
+  logger = require('heroku-logger'),
+  redis = require('redis'),
+  { REDIS_APPKEY_PREFIX = '' } = process.env;
 
-const redisOptions = () => {
+let redisClient, customRedisClient = {};
+
+const redisOptions = (legacyMode = false) => {
 
   const options = {
-    no_ready_check: true,
-    enable_offline_queue: true,
-    retry_strategy: (options) => {
-      if (options.error && options.error.code === 'ECONNREFUSED') {
-        return new Error('The server refused the connection');
-      }
-      if (options.total_retry_time > 1000 * 60 * 60) {
-        return new Error('Retry time exhausted');
-      }
-      if (options.attempt > 10) {
-        return undefined;
-      }
-      // reconnect after
-      return Math.min(options.attempt * 100, 3000);
-    }
+    url: REDIS_URL,
+    legacyMode
   };
 
   if (REDIS_PASSWORD !== '') {
@@ -37,7 +27,7 @@ const redisOptions = () => {
   }
 
   if (REDIS_CA !== '') {
-    options.tls = {
+    options.socket.tls = {
       cert: REDIS_CA,
       ca: [ REDIS_CA ]
     };
@@ -46,12 +36,22 @@ const redisOptions = () => {
   return options;
 };
 
-redis.debug_mode = false;
+;(async () => {
 
-bluebird.promisifyAll(redis.RedisClient.prototype);
+  try {
 
-const RedisClient = (() => {
-  return redis.createClient(REDIS_URL, redisOptions());
+    redisClient = redis.createClient(redisOptions());
+
+    redisClient.on('error', (err) => console.log('redis.js: Redis Client Error', err));
+
+    await redisClient.connect();
+
+    // await redisClient.ping();
+
+  } catch (err) {
+    logger.error(err.stack);
+  }
+
 })();
 
-module.exports = RedisClient;
+module.exports = redisClient;

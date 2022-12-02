@@ -23,7 +23,7 @@ const rParams = [
   'connected_slaves'
 ];
 
-module.exports = (app, redisClient, logger) => {
+module.exports = (app, redisClient) => {
 
   app.get('/info', async (req, res, next) => {
 
@@ -31,7 +31,7 @@ module.exports = (app, redisClient, logger) => {
 
       const
         data = {},
-        redisInfo = await redisClient.infoAsync('default');
+        redisInfo = await redisClient.info('all');
 
       redisInfo.split('\n').forEach((ln) => {
         const found = ln.match(/^([a-z_0-9]+):([^:]+)$/);
@@ -45,7 +45,7 @@ module.exports = (app, redisClient, logger) => {
       res.send(data);
 
     } catch (err) {
-      logger.error(err.stack);
+      next(err);
     }
   });
 };

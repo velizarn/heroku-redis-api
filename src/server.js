@@ -17,9 +17,8 @@ const
   nocache = require('nocache'),
   logger = require('heroku-logger'),
   { forceDomainSSL, unless , middlewareSecurity, whitelistIp } = require('./middleware'),
-  redisClient = require('./redisClient');
-
-const app = express();
+  redisClient = require('./redisClient'),
+  app = express();
 
 app
   .use(forceDomainSSL)
@@ -38,7 +37,12 @@ app
 require('./routes')(app, redisClient, logger);
 
 app.use((err, req, res, next) => {
-  res.sendStatus(500).send({ error: true });
+  res.status(400).send({
+    error: true,
+    path: req.path,
+    message: err.message || ''
+  });
+  logger.error(`${req.path} - ${err.message}`);
 });
 
 module.exports = app.listen(PORT, async () => {
