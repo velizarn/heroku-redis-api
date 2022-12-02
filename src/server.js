@@ -39,7 +39,6 @@ require('./routes')(app, redisClient, logger);
 app.use((err, req, res, next) => {
   res.status(400).send({
     error: true,
-    path: req.path,
     message: err.message || ''
   });
   logger.error(`${req.path} - ${err.message}`);
