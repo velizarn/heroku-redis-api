@@ -48,6 +48,11 @@ You can deploy to Render.com by clicking the button below:<br />
 You can deploy to Scalingo by clicking the button below:<br />
 [![Deploy on Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/velizarn/heroku-redis-api#main)
 
+### Gitpod
+
+Navigate to https://gitpod.io/#https://github.com/velizarn/heroku-redis-api and follow the instructions.
+ After installation update REDIS_URL to point to your Redis server
+
 ### Local environment
 
 1) Install Javascript dependencies (via yarn or npm)

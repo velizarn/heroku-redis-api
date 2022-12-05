@@ -1,0 +1,18 @@
+---
+gitConfig:
+  core.eol: lf
+ports:
+  - name: Redis API
+    port: 5000
+    onOpen: open-preview
+    visibility: private
+tasks:
+  - init: npm install
+    command: npm run start
+    env:
+      LOG_LEVEL: info
+      NODE_ENV: development
+      PORT: 5000
+      REDIS_APPKEY_PREFIX:
+      REDIS_URL:
+      WHITELIST_IP:
