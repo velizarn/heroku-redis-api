@@ -7,6 +7,7 @@ module.exports = (app, redisClient) => {
   require('./insomnia')(app);
   require('./info')(app, redisClient);
   require('./keys')(app, redisClient);
+  require('./scan')(app, redisClient);
   require('./get')(app, redisClient);
   require('./type')(app, redisClient);
   require('./ttl')(app, redisClient);

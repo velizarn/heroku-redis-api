@@ -81,6 +81,31 @@
     {
       "_id": "__REQ_4__",
       "parentId": "__FLD_1__",
+      "url": "{{ api_root }}/scan",
+      "name": "scan",
+      "description": "Iterates the set of keys in the currently selected database.\n\n```sh\ncurl --request GET --url '{{ api_root }}/scan'\n```\n\nhttps://redis.io/commands/scan",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "value": "0",
+          "disabled": false
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "isPrivate": false,
+      "settingStoreCookies": false,
+      "settingSendCookies": false,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "__REQ_5__",
+      "parentId": "__FLD_1__",
       "url": "{{ api_root }}/get",
       "name":"get",
       "description": "Get the value of key. If the key does not exist the special value nil is returned. An error is returned if the value stored at key is not a string, because GET only handles string values.\n\n```sh\ncurl --request GET --url '{{ api_root }}/get?key=foo'\n```\n\nhttps://redis.io/commands/get",
@@ -104,7 +129,7 @@
       "_type": "request"
     },
     {
-      "_id": "__REQ_5__",
+      "_id": "__REQ_6__",
       "parentId": "__FLD_1__",
       "url": "{{ api_root }}/type",
       "name": "type",
@@ -129,7 +154,7 @@
       "_type": "request"
     },
     {
-      "_id": "__REQ_6__",
+      "_id": "__REQ_7__",
       "parentId": "__FLD_1__",
       "url": "{{ api_root }}/ttl",
       "name": "ttl",
@@ -154,7 +179,7 @@
       "_type": "request"
     },
     {
-      "_id": "__REQ_7__",
+      "_id": "__REQ_8__",
       "parentId": "__FLD_1__",
       "url": "{{ api_root }}/del",
       "name": "del",

@@ -16,6 +16,10 @@
     "description": "Returns all keys, optionally you can set a pattern, e.g. /keys?pattern=name*"
   },
   {
+    "route": "GET /scan",
+    "description": "Iterates the set of keys in the currently selected database, optionally you can set a cursor and count, e.g. /scan?cursor=0&count=5"
+  },
+  {
     "route": "GET /get?key=",
     "description": "Get the value of key. If the key does not exist the special value nil is returned. An error is returned if the value stored at key is not a string, because GET only handles string values."
   },
