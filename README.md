@@ -51,7 +51,16 @@ You can deploy to Scalingo by clicking the button below:<br />
 ### Gitpod
 
 Navigate to https://gitpod.io/#https://github.com/velizarn/heroku-redis-api and follow the instructions.
- After installation update REDIS_URL to point to your Redis server
+ After installation create .env file in your workspace with following parameters:
+
+```
+LOG_LEVEL=info
+REDIS_APPKEY_PREFIX=
+REDIS_URL=redis://127.0.0.1:6379
+WHITELIST_IP=
+```
+The most important parameter is REDIS_URL. After creating .env file restart the application, if needed.
+
 
 ### Local environment
 
