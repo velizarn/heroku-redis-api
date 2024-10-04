@@ -6,7 +6,7 @@
     "url": "https://velizarn.github.io/"
   },
   "engines": {
-    "node": "16.18.1"
+    "node": "20.18.0"
   },
   "main": "src/start.js",
   "scripts": {
